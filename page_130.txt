@@ -1,0 +1,1 @@
+<</Parent 2 0 R/Type /Page/MediaBox [0 0 841.92 595.32]/Resources <</Font <</F1 288 0 R/F2 291 0 R>>/ExtGState <</GS8 298 0 R/GS9 299 0 R>>/XObject <</Image79 372 0 R>>/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]>>/Contents 373 0 R/Group <</CS /DeviceRGB/S /Transparency>>>>
