@@ -1,21 +1,16 @@
-use std::borrow::Cow;
+use ord_subset::OrdVar;
+use pdf::content::{Matrix, Op, TextDrawAdjusted};
 
-use pdf::{
-    content::{Matrix, Op, TextDrawAdjusted},
-    file::File,
-    object::PageRc,
-};
-
-fn text_objects(operations: &[Op]) -> impl Iterator<Item = TextObject> {
+pub(crate) fn text_objects(operations: &[Op]) -> impl Iterator<Item = TextObject> {
     TextObjectParser {
         ops: operations.iter(),
     }
 }
 
 #[derive(Debug, Clone, PartialEq)]
-struct TextObject {
-    pub x: f32,
-    pub y: f32,
+pub(crate) struct TextObject {
+    pub x: OrdVar<f32>,
+    pub y: OrdVar<f32>,
     pub text: String,
 }
 
@@ -57,7 +52,11 @@ impl Iterator for TextObjectParser<'_> {
                 }
                 Op::EndText => {
                     if let (Some((x, y)), Some(text)) = (last_coords.take(), last_text.take()) {
-                        return Some(TextObject { x, y, text });
+                        return Some(TextObject {
+                            x: OrdVar::new(x),
+                            y: OrdVar::new(y),
+                            text,
+                        });
                     }
                 }
                 _ => continue,

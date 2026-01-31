@@ -3,6 +3,8 @@ use std::io::Read;
 use flate2::read::{DeflateDecoder, ZlibDecoder};
 use image::ExtendedColorType;
 use pdf::file::FileOptions;
+
+use crate::page::{TextObject, text_objects};
 // use lopdf::{Document, Object, StringFormat};
 
 mod images;
@@ -15,14 +17,22 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .open("London North Western (South) Sectional Appendix December 2025.pdf")?;
 
     let pages = doc.pages();
-    let page = doc.get_page(3)?;
-    // extract_text(
-    //     &page
-    //         .contents
-    //         .as_ref()
-    //         .ok_or("Couldn't get page contents")?
-    //         .operations(&doc.resolver())?,
-    // )?;
+    let page = doc.get_page(3 - 1)?;
+    let ops = &page
+        .contents
+        .as_ref()
+        .ok_or("Couldn't get page contents")?
+        .operations(&doc.resolver())?;
+    let mut objs: Vec<TextObject> = text_objects(ops).collect();
+
+    // sort top to bottom left to right (pdfs have y increasing upwards)
+    objs.sort_by_key(|t| (-t.y, t.x));
+    // objs.reverse();
+
+    for obj in objs.iter() {
+        println!("{:?}", obj);
+    }
+    // let objs =
 
     // let pages = doc.get_pages();
     // let page_id = pages.get(&92).ok_or("couldn't get page id")?;

@@ -6,5 +6,6 @@ edition = "2024"
 [dependencies]
 flate2 = "1.1.8"
 image = "0.25.9"
+ord_subset = { version = "3.1.2", features = ["ops"] }
 pdf = "0.9.1"
 regex = "1.12.2"

@@ -849,6 +849,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42f5e15c9953c5e4ccceeb2e7382a716482c34515315f7b03532b8b4e8393d2d"
 
 [[package]]
+name = "ord_subset"
+version = "3.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fdcf5505c0f054ce51fa0fa74142738930a45d5ac1faacae4dd4e2f54afe00fa"
+
+[[package]]
 name = "paste"
 version = "1.0.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1140,6 +1146,7 @@ version = "0.1.0"
 dependencies = [
  "flate2",
  "image",
+ "ord_subset",
  "pdf",
  "regex",
 ]
