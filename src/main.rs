@@ -5,6 +5,7 @@ use image::ExtendedColorType;
 use pdf::{
     file::FileOptions,
     font::{FontData, FontDescriptor, FontType, TFont},
+    object::{PageRc, Resolve},
 };
 
 use crate::page::{TextObject, text_objects};
@@ -19,42 +20,54 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let doc = FileOptions::cached()
         .open("London North Western (South) Sectional Appendix December 2025.pdf")?;
 
-    let pages = doc.pages();
-    let page = doc.get_page(96 - 1)?;
-    let ops = &page
-        .contents
-        .as_ref()
-        .ok_or("Couldn't get page contents")?
-        .operations(&doc.resolver())?;
-    let mut objs: Vec<TextObject> = text_objects(ops).collect();
+    let mut pages = doc.pages();
 
-    // sort top to bottom left to right (pdfs have y increasing upwards)
-    objs.sort_by_key(|t| (-t.y, t.x));
-    // objs.reverse();
+    let mut iol_fake_page_no = "".to_string();
+    while let Some(page) = pages.next() {
+        let page = page?;
 
-    // for obj in objs.iter() {
-    //     println!("{:?}", obj);
-    // }
+        let strings = extract_grouped_strings(page, doc.resolver())?;
 
-    let font = page
-        .resources()?
-        .fonts
-        .get(&objs[0].font_name)
-        .ok_or("Could not get font")?
-        .load(&doc.resolver())?;
+        if strings.contains(&"Table of Contents".to_string()) {
+            let iol_idx = strings
+                .iter()
+                .position(|s| s == "Index of Locations")
+                .ok_or("Could not find Index of Locations in table of contents")?;
 
-    let avg_width = match font.data {
-        FontData::TrueType(TFont {
-            font_descriptor: Some(FontDescriptor { avg_width, .. }),
-            ..
-        }) => Ok(avg_width),
-        _ => Err("Could not get font average glyph width"),
-    }?;
-
-    let grouped = group_textobjects(objs, avg_width);
-    for obj in grouped.iter() {
-        println!("{:?}", obj);
+            iol_fake_page_no = strings[iol_idx + 1].clone();
+            break;
+        }
+        // for obj in grouped {
+        //     println!("{:?}", obj);
+        // }
     }
+    println!("found iol page number {}", iol_fake_page_no);
+
+    let mut iol_strings = Vec::new();
+
+    while let Some(page) = pages.next() {
+        let page = page?;
+
+        let strings = extract_grouped_strings(page, doc.resolver())?;
+
+        if *strings.last().ok_or("No strings found in page")? == iol_fake_page_no {
+            println!("found iol");
+            iol_strings = strings[5..=strings.len() - 3].to_vec();
+            break;
+        }
+    }
+
+    while let Some(page) = pages.next() {
+        let page = page?;
+
+        let strings = extract_grouped_strings(page, doc.resolver())?;
+        if strings[2] != "Location" {
+            break;
+        }
+
+        iol_strings.append(&mut strings[4..=strings.len() - 3].to_vec())
+    }
+    println!("{:?}", iol_strings);
 
     // println!("{:#?}", font);
     // match font.data {
@@ -157,13 +170,13 @@ fn group_textobjects(objs: Vec<TextObject>, avg_width: f32) -> Vec<TextObject> {
                 let diff_x = (*obj.x - *(acc_obj.x + expected_width)).abs();
                 let diff_y = (*obj.y - *acc_obj.y).abs();
                 // println!("{:?diff_x}")
-                dbg!(diff_x);
-                dbg!(diff_y);
-                dbg!(acc_obj);
-                dbg!(&obj);
+                // dbg!(diff_x);
+                // dbg!(diff_y);
+                // dbg!(acc_obj);
+                // dbg!(&obj);
 
                 if diff_x < 22.0 && diff_y < 0.05 {
-                    println!("grouped {:?} and {:?}", &acc_obj.text, obj.text);
+                    // println!("grouped {:?} and {:?}", &acc_obj.text, obj.text);
                     acc = Some(TextObject {
                         text: acc_obj.text.clone() + &obj.text,
                         ..acc_obj.clone()
@@ -178,3 +191,49 @@ fn group_textobjects(objs: Vec<TextObject>, avg_width: f32) -> Vec<TextObject> {
 
     grouped
 }
+
+fn extract_grouped_strings(
+    page: PageRc,
+    resolver: impl Resolve,
+) -> Result<Vec<String>, Box<dyn std::error::Error>> {
+    let ops = &page
+        .contents
+        .as_ref()
+        .ok_or("Couldn't get page contents")?
+        .operations(&resolver)?;
+    let mut objs: Vec<TextObject> = text_objects(ops).collect();
+
+    // sort top to bottom left to right (pdfs have y increasing upwards)
+    objs.sort_by_key(|t| (-t.y, t.x));
+
+    let font = page
+        .resources()?
+        .fonts
+        .get(&objs[0].font_name)
+        .ok_or("Could not get font")?
+        .load(&resolver)?;
+
+    let avg_width = match font.data {
+        FontData::TrueType(TFont {
+            font_descriptor: Some(FontDescriptor { avg_width, .. }),
+            ..
+        }) => Ok(avg_width),
+        _ => Err("Could not get font average glyph width"),
+    }?;
+
+    let grouped = group_textobjects(objs, avg_width)
+        .into_iter()
+        .filter_map(|to| {
+            let t = to.text.trim().to_string();
+            if !t.is_empty() { Some(t) } else { None }
+        })
+        .collect();
+
+    Ok(grouped)
+}
+
+// enum Stage {
+//     SeekingFirstToc,
+//     SeekingIndexOfLocations,
+//     Extracting
+// }
