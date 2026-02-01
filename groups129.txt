@@ -1,0 +1,162 @@
+grouped "OFFICIAL" and " "
+grouped "LNW South" and " "
+grouped "LNW South " and "Route Sectional Appendix Module "
+grouped "LNW South Route Sectional Appendix Module " and "LNW(S)2"
+grouped "LNW South Route Sectional Appendix Module LNW(S)2" and " "
+grouped "Page" and " "
+grouped "MD580" and "-"
+grouped "MD580-" and " "
+grouped "MD580- " and "LIFFORD EAST JUNCTION TO LIFFORD WEST JUNCTION"
+grouped "200" and " "
+grouped "MD701" and "-"
+grouped "MD701-" and " "
+grouped "MD701- " and "MARYLEBONE TO AYNHO JUNCTION"
+grouped "201" and " "
+grouped "MD705" and "-"
+grouped "MD705-" and " "
+grouped "MD705- " and "GREENFORD WEST JN TO SOUTH RUISLIP"
+grouped "210" and " "
+grouped "MD710" and "-"
+grouped "MD710-" and " "
+grouped "MD710- " and "NEASDEN SOUTH JUNCTION TO HARROW ON THE HILL"
+grouped "211" and " "
+grouped "MD712" and "-"
+grouped "MD712-" and " "
+grouped "MD712- " and "AMERSHAM TO AYLESBURY"
+grouped "212" and " "
+grouped "MD715" and "-"
+grouped "MD715-" and " "
+grouped "MD715- " and "NEASDEN SOUTH JUNCTION TO NEASDEN JUNCTION"
+grouped "214" and " "
+grouped "MD720" and "-"
+grouped "MD720-" and " "
+grouped "MD720- " and "PRINCES RISBOROUGH TO AYLESBURY"
+grouped "215" and " "
+grouped "MD725" and "-"
+grouped "MD725-" and " "
+grouped "MD725- " and "AYLESBURY TO CLAYDON L&NE JUNCTION"
+grouped "217" and " "
+grouped "MD726" and "-"
+grouped "MD726-" and " "
+grouped "MD726- " and "AYLESBURY TO CLAYDON WEST JUNCTION"
+grouped "218B" and " "
+grouped "MD735" and "-"
+grouped "MD735-" and " "
+grouped "MD735- " and "DENBIGH HALL SOUTH JN TO BICESTER TOWN"
+grouped "219" and " "
+grouped "MD736" and "-"
+grouped "MD736-" and " "
+grouped "MD736- " and "OXFORD NORTH JN (EXCLE.) TO DENBIGH HALL SOUTH JN. "
+grouped "220A" and " "
+grouped "MD740" and "-"
+grouped "MD740-" and " "
+grouped "MD740- " and "BLETCHLEY, SUMMIT OF FLYOVER TO FENNY STRATFORD (FLYOVER LINES)"
+grouped "221" and " "
+grouped " " and "221A "
+grouped " 221A " and " "
+grouped "MD745 " and "\0�"
+grouped "MD745 \0�" and "BICESTER SOUTH JUNCTION TO GAVRAY JUNCTION"
+grouped "221" and "B"
+grouped "221B" and " "
+grouped "MD801" and "-"
+grouped "MD801-" and " "
+grouped "MD801- " and "WOLVERHAMPTON NORTH JN TO ABBEY FOREGATE (EXCLUSIVE)"
+grouped "222" and " "
+grouped "MD805" and "-"
+grouped "MD805-" and " "
+grouped "MD805- " and "OXLEY, STAFFORD ROAD JN TO BUSHBURY OXLEY JN (OXLEY CHORD LINES)"
+grouped "228" and " "
+grouped "MD810" and "-"
+grouped "MD810-" and " "
+grouped "MD810- " and "MADELEY JUNCTION TO IRONBRIDGE NATIONAL POWER STATION"
+grouped "229" and " "
+grouped "MD900" and "-"
+grouped "MD900-" and " "
+grouped "MD900- " and "ABBOTSWOOD JN TO STOKE WORKS JN VIA WORCESTER SHRUB HILL"
+grouped "230A" and " "
+grouped "MD910" and "-"
+grouped "MD910-" and " "
+grouped "MD910- " and "PERSHORE (INCL.) TO NORTON JN"
+grouped "MD910- PERSHORE (INCL.) TO NORTON JN" and " "
+grouped "230E" and " "
+grouped "MD940" and "-"
+grouped "MD940-" and " "
+grouped "MD940- " and "WORCESTER SHRUB HILL TO SHELWICK JN"
+grouped "230F" and " "
+grouped "MD950" and "-"
+grouped "MD950-" and " "
+grouped "MD950- " and "WORCESTER TUNNEL JN TO HENWICK"
+grouped "230L" and " "
+grouped "December" and " "
+grouped "December " and "2009"
+grouped "December 2009" and " "
+grouped "23A" and " "
+TextObject { x: OrdVar(279.55), y: OrdVar(832.2), text: "OFFICIAL ", font_size: 9.96, font_name: Name("F2") }
+TextObject { x: OrdVar(53.904), y: OrdVar(798.12), text: "LNW South Route Sectional Appendix Module LNW(S)2 ", font_size: 9.0, font_name: Name("F1") }
+TextObject { x: OrdVar(496.92), y: OrdVar(760.56), text: "Page ", font_size: 9.96, font_name: Name("F3") }
+TextObject { x: OrdVar(266.45), y: OrdVar(756.84), text: " ", font_size: 14.04, font_name: Name("F3") }
+TextObject { x: OrdVar(53.904), y: OrdVar(738.46), text: "MD580- LIFFORD EAST JUNCTION TO LIFFORD WEST JUNCTION", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(364.63), y: OrdVar(738.46), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(738.46), text: "200 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(726.94), text: "MD701- MARYLEBONE TO AYNHO JUNCTION", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(270.19), y: OrdVar(726.94), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(726.94), text: "201 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(715.42), text: "MD705- GREENFORD WEST JN TO SOUTH RUISLIP", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(298.99), y: OrdVar(715.42), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(715.42), text: "210 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(704.02), text: "MD710- NEASDEN SOUTH JUNCTION TO HARROW ON THE HILL", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(361.27), y: OrdVar(704.02), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(704.02), text: "211 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(692.5), text: "MD712- AMERSHAM TO AYLESBURY", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(229.61), y: OrdVar(692.5), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(692.5), text: "212 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(680.98), text: "MD715- NEASDEN SOUTH JUNCTION TO NEASDEN JUNCTION", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(352.87), y: OrdVar(680.98), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(680.98), text: "214 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(669.46), text: "MD720- PRINCES RISBOROUGH TO AYLESBURY", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(287.35), y: OrdVar(669.46), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(669.46), text: "215 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(657.94), text: "MD725- AYLESBURY TO CLAYDON L&NE JUNCTION", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(302.35), y: OrdVar(657.94), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(657.94), text: "217 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(646.42), text: "MD726- AYLESBURY TO CLAYDON WEST JUNCTION", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(305.11), y: OrdVar(646.42), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(497.16), y: OrdVar(646.42), text: "218B ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(635.02), text: "MD735- DENBIGH HALL SOUTH JN TO BICESTER TOWN", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(321.31), y: OrdVar(635.02), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(635.02), text: "219 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(623.5), text: "MD736- OXFORD NORTH JN (EXCLE.) TO DENBIGH HALL SOUTH JN. ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(384.7), y: OrdVar(623.5), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(497.16), y: OrdVar(623.5), text: "220A ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(611.98), text: "MD740- BLETCHLEY, SUMMIT OF FLYOVER TO FENNY STRATFORD (FLYOVER LINES)", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(466.9), y: OrdVar(611.98), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(611.98), text: "221 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(600.46), text: "MD741  FLYOVER SUMMIT JN TO FENNY STRATFORD JN (BLETCHLEY FLYOVER LINES)", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(476.86), y: OrdVar(600.46), text: " 221A  ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(588.94), text: "MD745 \0�BICESTER SOUTH JUNCTION TO GAVRAY JUNCTION", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(350.11), y: OrdVar(588.94), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(497.16), y: OrdVar(588.94), text: "221B ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(577.42), text: "MD801- WOLVERHAMPTON NORTH JN TO ABBEY FOREGATE (EXCLUSIVE)", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(415.06), y: OrdVar(577.42), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(577.42), text: "222 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(565.99), text: "MD805- OXLEY, STAFFORD ROAD JN TO BUSHBURY OXLEY JN (OXLEY CHORD LINES)", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(471.94), y: OrdVar(565.99), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(565.99), text: "228 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(554.47), text: "MD810- MADELEY JUNCTION TO IRONBRIDGE NATIONAL POWER STATION", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(415.66), y: OrdVar(554.47), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(500.52), y: OrdVar(554.47), text: "229 ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(542.95), text: "MD900- ABBOTSWOOD JN TO STOKE WORKS JN VIA WORCESTER SHRUB HILL", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(437.38), y: OrdVar(542.95), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(497.16), y: OrdVar(542.95), text: "230A ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(531.43), text: "MD910- PERSHORE (INCL.) TO NORTON JN ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(497.16), y: OrdVar(531.43), text: "230E ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(519.91), text: "MD940- WORCESTER SHRUB HILL TO SHELWICK JN", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(305.71), y: OrdVar(519.91), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(497.52), y: OrdVar(519.91), text: "230F ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(508.51), text: "MD950- WORCESTER TUNNEL JN TO HENWICK", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(281.83), y: OrdVar(508.51), text: " ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(497.76), y: OrdVar(508.51), text: "230L ", font_size: 9.96, font_name: Name("F1") }
+TextObject { x: OrdVar(53.904), y: OrdVar(497.95), text: " ", font_size: 9.0, font_name: Name("F3") }
+TextObject { x: OrdVar(53.904), y: OrdVar(487.51), text: " ", font_size: 9.0, font_name: Name("F3") }
+TextObject { x: OrdVar(53.904), y: OrdVar(25.08), text: "December 2009 ", font_size: 9.0, font_name: Name("F1") }
+TextObject { x: OrdVar(289.03), y: OrdVar(25.08), text: "23A ", font_size: 9.0, font_name: Name("F1") }
