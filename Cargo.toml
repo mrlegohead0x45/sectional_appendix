@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+adobe-cmap-parser = "0.4.1"
+anyhow = "1.0.100"
 flate2 = "1.1.8"
 image = "0.25.9"
 ord_subset = { version = "3.1.2", features = ["ops"] }

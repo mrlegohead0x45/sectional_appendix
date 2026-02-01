@@ -1,22 +1,32 @@
 use ord_subset::OrdVar;
 use pdf::{
     content::{Matrix, Op, TextDrawAdjusted},
-    primitive::Name,
+    primitive::{Name, PdfString},
 };
 
-pub(crate) fn text_objects(operations: &[Op]) -> impl Iterator<Item = TextObject> {
+pub(crate) fn text_objects(operations: &[Op]) -> impl Iterator<Item = RawTextObject> {
     TextObjectParser {
         ops: operations.iter(),
     }
 }
 
 #[derive(Debug, Clone, PartialEq)]
-pub(crate) struct TextObject {
+pub(crate) struct RawTextObject {
+    pub x: OrdVar<f32>,
+    pub y: OrdVar<f32>,
+    pub text: Vec<u8>,
+    pub font_size: f32,
+    pub font_name: Name,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub(crate) struct UnicodeTextObject {
     pub x: OrdVar<f32>,
     pub y: OrdVar<f32>,
     pub text: String,
     pub font_size: f32,
     pub font_name: Name,
+    pub font_avg_width: f32,
 }
 
 #[derive(Debug, Clone)]
@@ -25,7 +35,7 @@ struct TextObjectParser<'a> {
 }
 
 impl Iterator for TextObjectParser<'_> {
-    type Item = TextObject;
+    type Item = RawTextObject;
 
     fn next(&mut self) -> Option<Self::Item> {
         let mut last_coords = None;
@@ -33,7 +43,7 @@ impl Iterator for TextObjectParser<'_> {
         let mut last_font_size = None;
         let mut last_font_name = None;
 
-        while let Some(op) = self.ops.next() {
+        for op in self.ops.by_ref() {
             match op {
                 Op::BeginText => {
                     last_coords = None;
@@ -48,16 +58,30 @@ impl Iterator for TextObjectParser<'_> {
                 } => {
                     last_coords = Some((*e, *f));
                 }
-                Op::TextDraw { text } => last_text = Some(text.to_string_lossy()),
+                Op::TextDraw { text } => last_text = Some(text.data.as_slice().to_vec()),
                 Op::TextDrawAdjusted { array } => {
                     last_text = Some(
                         array
                             .iter()
                             .filter_map(|i| match i {
                                 TextDrawAdjusted::Spacing(_) => None,
-                                TextDrawAdjusted::Text(t) => Some(t.to_string_lossy()),
+                                TextDrawAdjusted::Text(t) => {
+                                    // println!("{:?}", t.data);
+                                    // if let Ok(s) = t.to_string() {
+                                    //     Some(s)
+                                    // } else {
+                                    //     println!("INVALID FOUND {:?}", t.data);
+                                    //     // println!("{:?}", last_text);
+                                    //     // panic!();
+                                    //     None
+                                    // }
+                                    // Some(t.to_string().expect("valid utf8 data"))
+                                    Some(t.data.as_slice())
+                                }
                             })
-                            .collect(),
+                            .flatten()
+                            .copied()
+                            .collect::<Vec<u8>>(),
                     );
                 }
                 Op::EndText => {
@@ -67,7 +91,7 @@ impl Iterator for TextObjectParser<'_> {
                         last_font_size.take(),
                         last_font_name.take(),
                     ) {
-                        return Some(TextObject {
+                        return Some(RawTextObject {
                             x: OrdVar::new(x),
                             y: OrdVar::new(y),
                             text,
