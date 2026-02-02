@@ -187,10 +187,10 @@ fn extract_grouped_strings(page: PageRc, resolver: &impl Resolve) -> Result<Vec<
         .context("Failed to get page contents")?
         .operations(resolver)?;
     let mut objs: Vec<RawTextObject> = text_objects(ops)
-        .map(|to| {
-            println!("{:?}", to.text);
-            to
-        })
+        // .map(|to| {
+        //     println!("{:?}", to.text);
+        //     to
+        // })
         .collect();
 
     // sort top to bottom left to right (pdfs have y increasing upwards)
@@ -217,7 +217,7 @@ fn extract_grouped_strings(page: PageRc, resolver: &impl Resolve) -> Result<Vec<
         .map(|raw| {
             let o = unicodify(raw, fonts, resolver)
                 .with_context(|| format!("Failed to unicodify text object {:?}", raw));
-            dbg!(&o);
+            // dbg!(&o);
             o
         })
         .collect::<Result<Vec<UnicodeTextObject>>>()
@@ -255,9 +255,9 @@ fn unicodify(
         _ => 0.521,
     };
     let text = match &font.to_unicode {
-        None => Ok(String::from_utf8(raw.text.clone())
+        None => Ok(String::from_iter(raw.text.iter().map(|x| char::from(*x))))
             .with_context(|| format!("Invalid UTF8 when no ToUnicode was found"))
-            .with_context(|| format!("Font was {:?}", font))?),
+            .with_context(|| format!("Font was {:?}", font)),
 
         Some(u) => {
             let cmap_bytes = u.deref().data(resolver).context("Failed to get CMAP")?;
